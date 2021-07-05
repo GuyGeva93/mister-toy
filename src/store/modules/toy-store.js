@@ -6,6 +6,8 @@ Vue.use(Vuex)
 
 
 export const toyStore = {
+  strict: true,
+
   state: {
     toys: []
   },
@@ -16,11 +18,23 @@ export const toyStore = {
     }
   },
 
-  // getters: {
-
-  // },
+  getters: {
+    toysToShow(state) {
+      const toysToShow = JSON.parse(JSON.stringify(state.toys))
+      return toysToShow
+    }
+  },
 
   actions: {
-
+    loadToys(context) {
+      return toyService.query()
+        .then(toys => {
+          context.commit({ type: 'setToys', toys })
+        })
+        .catch(err => {
+          console.log(`Can't load toys`, err)
+          throw err
+        })
+    }
   }
 }

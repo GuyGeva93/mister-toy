@@ -1,4 +1,4 @@
-import { storageService } from "./async-storage-service"
+import axios from "axios"
 
 export const toyService = {
   query,
@@ -9,28 +9,27 @@ export const toyService = {
 }
 
 function query() {
-  // return axios.get('/api/toy')
-  //   .then(res => res.data)
-  return storageService.query()
+  return axios.get('http://localhost:3000/api/toy')
+    .then(res => res.data)
 }
 
 function getById(toyId) {
-  return axios.get(`/api/toy/${toyId}`)
+  return axios.get(`http://localhost:3000/api/toy/${toyId}`)
     .then(res => res.data)
 }
 
 function save(toy) {
   if (toy._id) {
-    return axios.put(`/api/toy`, toy)
+    return axios.put(`http://localhost:3000/api/toy`, toy)
       .then(res => res.data)
   } else {
-    return axios.post(`/api/toy`, toy)
+    return axios.post(`http://localhost:3000/api/toy`, toy)
       .then(res => res.data)
   }
 }
 
 function remove(toyId) {
-  return axios.delete(`/api/toy/${toyId}`)
+  return axios.delete(`http://localhost:3000/api/toy/${toyId}`)
     .then(res => res.data)
 }
 

@@ -1,0 +1,6 @@
+@import './cmps/toy-preview.css';
+@import './cmps/toy-list.css';
+@import './cmps/toy-edit.css';
+* {
+  box-sizing: border-box;
+}

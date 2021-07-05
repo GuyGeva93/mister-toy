@@ -2,7 +2,6 @@
 <template>
   <section class="toy-app">
     <toy-list :toys="toys" />
-    <h1>Toy app</h1>
   </section>
 </template>
 
