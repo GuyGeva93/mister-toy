@@ -1,3 +1,4 @@
+import { storageService } from "./async-storage-service"
 
 export const toyService = {
   query,
@@ -8,8 +9,9 @@ export const toyService = {
 }
 
 function query() {
-  return axios.get('/api/toy')
-    .then(res => res.data)
+  // return axios.get('/api/toy')
+  //   .then(res => res.data)
+  return storageService.query()
 }
 
 function getById(toyId) {

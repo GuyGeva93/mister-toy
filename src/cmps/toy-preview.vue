@@ -1,20 +1,19 @@
 
 <template>
   <section class="toy-preview">
-    <span>Toy preview</span>
-    <!-- <h2>{{ toy.name }}</h2>
+    <h2>{{ toy.name }}</h2>
+    <span>Type: {{ toy.type }}</span>
     <span>${{ toy.price }}</span>
-    <span>Type: {{ toy.type }}</span> -->
   </section>
 </template>
 
 <script>
 export default {
+  props: {
+    toy: Object,
+  },
   data() {
     return {};
   },
 };
 </script>
-
-<style>
-</style>
