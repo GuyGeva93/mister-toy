@@ -1,4 +1,3 @@
-
 <template>
   <section class="toy-edit">
     <form @submit.prevent="updateToy" class="toy-edit-form">
@@ -15,27 +14,27 @@
 </template>
 
 <script>
-import { toyService } from "../services/toy-service.js";
+import { toyService } from '../services/toy-service.js'
 export default {
   data() {
     return {
-      toy: "",
-    };
+      toy: '',
+    }
   },
 
   methods: {
     loadToy() {
-      const id = this.$route.params.toyId;
-      toyService.getById(id).then((toy) => (this.toy = toy));
+      const id = this.$route.params.toyId
+      toyService.getById(id).then((toy) => (this.toy = toy))
     },
     updateToy() {
-      const toyCopy = JSON.parse(JSON.stringify(this.toy));
-      toyService.save(toyCopy).then(() => this.$router.push("/"));
+      const toyCopy = JSON.parse(JSON.stringify(this.toy))
+      toyService.save(toyCopy).then(() => this.$router.push('/'))
     },
   },
 
   created() {
-    this.loadToy();
+    this.loadToy()
   },
-};
+}
 </script>

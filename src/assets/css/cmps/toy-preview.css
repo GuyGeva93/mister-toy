@@ -1,8 +1,20 @@
 .toy-preview {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  gap: 20px;
   align-items: center;
+  justify-content: center;
   border: 1px solid;
-  width: 180px;
-  height: 180px;
+  width: 250px;
+  height: 350px;
+}
+
+.toy-preview h3,
+p {
+  margin: 0;
+}
+
+.toy-preview img {
+  width: 150px;
 }

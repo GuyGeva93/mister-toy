@@ -1,10 +1,13 @@
-
 <template>
   <section class="toy-preview">
-    <h2>{{ toy.name }}</h2>
+    <img src="@/assets/img/download.png" >
+    <h3>{{ toy.name }}</h3>
     <p>Type: {{ toy.type }}</p>
     <span>${{ toy.price }}</span>
-    <router-link :to="'/edit/' + toy._id">Edit</router-link>
+    <nav class="toy-preview-nav">
+      <router-link :to="'/edit/' + toy._id">Edit</router-link> | 
+      <router-link :to="'/details/' + toy._id">Details</router-link>
+    </nav>
   </section>
 </template>
 
@@ -15,7 +18,7 @@ export default {
   },
 
   data() {
-    return {};
+    return {}
   },
-};
+}
 </script>

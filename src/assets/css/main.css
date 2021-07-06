@@ -1,6 +1,16 @@
+@import './pages/toy-app.css';
 @import './cmps/toy-preview.css';
 @import './cmps/toy-list.css';
 @import './cmps/toy-edit.css';
 * {
   box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:link{
+  color:black;
+}
+a:visited {
+  color: black;
 }
