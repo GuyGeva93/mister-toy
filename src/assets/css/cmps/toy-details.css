@@ -1,0 +1,8 @@
+.toy-details {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.4rem;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

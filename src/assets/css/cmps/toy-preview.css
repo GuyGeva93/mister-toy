@@ -8,6 +8,7 @@
   border: 1px solid;
   width: 250px;
   height: 350px;
+  background-color: #fff;
 }
 
 .toy-preview h3,
@@ -16,5 +17,5 @@ p {
 }
 
 .toy-preview img {
-  width: 150px;
+  width: 120px;
 }

@@ -1,4 +1,3 @@
-
 <template>
   <section class="toy-list">
     <div v-for="toy in toys" :key="toy._id">
@@ -8,7 +7,7 @@
 </template>
 
 <script>
-import toyPreview from "./toy-preview.vue";
+import toyPreview from './toy-preview.vue'
 export default {
   props: {
     toys: Array,
@@ -17,5 +16,5 @@ export default {
   components: {
     toyPreview,
   },
-};
+}
 </script>

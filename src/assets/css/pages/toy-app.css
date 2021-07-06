@@ -1,4 +1,8 @@
 .toy-app {
   background-color: #12232e;
+  background-color: #659DBD;
   height: 85vh;
+  overflow-y: scroll;
+  padding: 0 10px;
+
 }

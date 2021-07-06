@@ -1,26 +1,40 @@
-
 <template>
   <section class="toy-app">
+    <toy-filter @filter="filter" />
     <toy-list :toys="toys" />
   </section>
 </template>
 
 <script>
-import toyList from "../cmps/toy-list.vue";
+import toyList from '../cmps/toy-list.vue'
+import toyFilter from '../cmps/toy-filter.vue'
 
 export default {
+  name: 'toyApp',
   created() {
-    this.$store.dispatch({ type: "loadToys" });
+    this.$store.dispatch({ type: 'loadToys' })
+  },
+
+  data() {
+    return {}
+  },
+
+  methods: {
+    filter(filterBy) {
+      this.$store.commit({ type: 'setFilter', filterBy })
+      this.$store.dispatch({ type: 'loadToys' })
+    },
   },
 
   computed: {
     toys() {
-      return this.$store.getters.toysToShow;
+      return this.$store.getters.toysToShow
     },
   },
 
   components: {
     toyList,
+    toyFilter,
   },
-};
+}
 </script>

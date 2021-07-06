@@ -1,0 +1,12 @@
+footer {
+    height: 5vh;
+    background-color: lightgrey;
+    padding: 0 10px;
+}
+
+footer p {
+    margin: 0 auto;
+    text-align: center;
+    font-family: cursive;
+    font-size: large;
+}

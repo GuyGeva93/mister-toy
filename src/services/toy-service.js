@@ -1,36 +1,35 @@
-import axios from "axios"
+import axios from 'axios'
 
 export const toyService = {
   query,
   getById,
   save,
   remove,
-  getEmptyToy
+  getEmptyToy,
 }
 
-function query() {
-  return axios.get('http://localhost:3000/api/toy')
-    .then(res => res.data)
+const TOY_URL = 'http://localhost:3000/api/toy'
+
+function query(filterBy) {
+
+  return axios.get(TOY_URL, { params: { filterBy } })
+    .then((res) => res.data)
 }
 
 function getById(toyId) {
-  return axios.get(`http://localhost:3000/api/toy/${toyId}`)
-    .then(res => res.data)
+  return axios.get(`${TOY_URL}/${toyId}`).then((res) => res.data)
 }
 
 function save(toy) {
   if (toy._id) {
-    return axios.put(`http://localhost:3000/api/toy`, toy)
-      .then(res => res.data)
+    return axios.put(TOY_URL, toy).then((res) => res.data)
   } else {
-    return axios.post(`http://localhost:3000/api/toy`, toy)
-      .then(res => res.data)
+    return axios.post(TOY_URL, toy).then((res) => res.data)
   }
 }
 
 function remove(toyId) {
-  return axios.delete(`http://localhost:3000/api/toy/${toyId}`)
-    .then(res => res.data)
+  return axios.delete(`${TOY_URL}/${toyId}`).then((res) => res.data)
 }
 
 function getEmptyToy() {
@@ -40,7 +39,7 @@ function getEmptyToy() {
     price: null,
     type: '',
     createdAt,
-    inStock: ''
+    inStock: '',
   }
   return toy
 }

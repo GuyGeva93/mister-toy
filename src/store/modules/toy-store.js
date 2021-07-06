@@ -4,37 +4,42 @@ import { toyService } from '../../services/toy-service.js'
 
 Vue.use(Vuex)
 
-
 export const toyStore = {
   strict: true,
 
   state: {
-    toys: []
+    toys: [],
+    filterBy: '',
   },
 
   mutations: {
     setToys(state, { toys }) {
       state.toys = toys
-    }
+    },
+    setFilter(state, { filterBy }) {
+      state.filterBy = filterBy
+    },
   },
 
   getters: {
     toysToShow(state) {
-      const toysToShow = JSON.parse(JSON.stringify(state.toys))
-      return toysToShow
-    }
+      return state.toys
+    },
   },
 
   actions: {
     loadToys(context) {
-      return toyService.query()
-        .then(toys => {
+      return toyService.query(context.state.filterBy)
+        .then((toys) => {
           context.commit({ type: 'setToys', toys })
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(`Can't load toys`, err)
           throw err
         })
+    },
+    setFilter(context, {filterBy}) {
+      
     }
-  }
+  },
 }
