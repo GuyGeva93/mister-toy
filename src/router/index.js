@@ -4,6 +4,7 @@ import toyApp from '../pages/toy-app.vue'
 import toyEdit from '../cmps/toy-edit.vue'
 import toyDetails from '../cmps/toy-details.vue'
 import toyStats from '../cmps/toy-stats.vue'
+import toyMaps from '../cmps/toy-maps.vue'
 
 Vue.use(vueRouter)
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path: '/stats',
     component: toyStats
+  }, 
+  {
+    path: '/maps',
+    component: toyMaps
   }
 
 ]
