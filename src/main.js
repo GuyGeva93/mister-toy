@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import * as VueGoogleMaps from 'vue2-google-maps'
-import {GOOGLE_MAPS_API_KEY} from '../src/assets/api-key/maps-api.js'
+import {GOOGLE_MAPS_API_KEY} from './assets/api-key/maps-api-key.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/scss/_main.scss'
 

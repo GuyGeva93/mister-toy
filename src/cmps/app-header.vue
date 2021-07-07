@@ -6,8 +6,7 @@
     <nav class="nav-bar">
       <router-link to="/">Home</router-link> |
       <router-link to="/stats">Stats</router-link> |
-      <router-link to="/maps">Our stores</router-link> 
-      <!-- <router-link to="/about">About</router-link> -->
+      <router-link to="/maps">Find store</router-link> 
     </nav>
   </header>
 </template>
