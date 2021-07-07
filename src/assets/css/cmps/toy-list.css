@@ -1,6 +1,6 @@
 .toy-list {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
   padding: 10px;

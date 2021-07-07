@@ -31,7 +31,7 @@ export default {
           label: 'Educational',
         },
         {
-          value: 'adult',
+          value: 'Adult',
           label: 'Adult',
         },
       ],
@@ -45,4 +45,5 @@ export default {
     },
   },
 }
+//Select from element ui
 </script>
