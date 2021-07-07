@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import vueRouter from 'vue-router'
-import toyApp from '../views/toy-app.vue'
+import toyApp from '../pages/toy-app.vue'
 import toyEdit from '../cmps/toy-edit.vue'
 import toyDetails from '../cmps/toy-details.vue'
 import toyStats from '../cmps/toy-stats.vue'

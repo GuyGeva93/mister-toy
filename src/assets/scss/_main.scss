@@ -1,0 +1,30 @@
+@import './pages/_toy-app.scss';
+@import './cmps/_toy-preview.scss';
+@import './cmps/_toy-list.scss';
+@import './cmps/_toy-edit.scss';
+@import './cmps/_toy-details.scss';
+@import './cmps/_toy-filter.scss';
+@import './cmps/_app-header.scss';
+@import './cmps/_app-footer.scss';
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+
+  &:link {
+    color: black;
+  }
+  &:visited {
+    color: black;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h2, h3, h4, h5 {
+  margin: 0;
+}
