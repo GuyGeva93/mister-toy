@@ -5,8 +5,9 @@
     </div>
     <nav class="nav-bar">
       <router-link to="/">Home</router-link> |
+      <router-link to="/add">Add new toy</router-link> | 
       <router-link to="/stats">Stats</router-link> |
-      <router-link to="/maps">Find store</router-link> 
+      <router-link to="/maps">Find store</router-link>
     </nav>
   </header>
 </template>

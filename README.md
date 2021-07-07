@@ -1,19 +1,5 @@
-# frontend
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Mister-Toy - Toys web app store.
+Used: Vue Cli, Vuex, Vue router, 
+Design: SASS
+Api used: Google Maps Api
+Libraries: Element ui, vue-chartjs, axios, core-js

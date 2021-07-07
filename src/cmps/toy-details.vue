@@ -13,23 +13,23 @@
 </template>
 
 <script>
-import { toyService } from '../services/toy-service.js'
-export default {
-  data() {
-    return {
-      toy: '',
-    }
-  },
-
-  methods: {
-    loadToy() {
-      const {toyId} = this.$route.params
-      toyService.getById(toyId).then((toy) => (this.toy = toy))
+  import { toyService } from '../services/toy-service.js'
+  export default {
+    data() {
+      return {
+        toy: '',
+      }
     },
-  },
 
-  created() {
-    this.loadToy()
-  },
-}
+    methods: {
+      loadToy() {
+        const { toyId } = this.$route.params
+        toyService.getById(toyId).then((toy) => (this.toy = toy))
+      },
+    },
+
+    created() {
+      this.loadToy()
+    },
+  }
 </script>

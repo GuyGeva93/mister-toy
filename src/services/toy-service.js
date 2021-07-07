@@ -21,6 +21,7 @@ function getById(toyId) {
 }
 
 function save(toy) {
+  toy.createdAt = Date.now()
   if (toy._id) {
     return axios.put(TOY_URL, toy).then((res) => res.data)
   } else {
@@ -34,12 +35,12 @@ function remove(toyId) {
 
 function getEmptyToy() {
   const toy = {
-    _id: '',
+    _id: null,
     name: '',
     price: null,
     type: '',
-    createdAt,
-    inStock: '',
+    createdAt: '',
+    inStock: true,
   }
-  return toy
+  return Promise.resolve(toy)
 }

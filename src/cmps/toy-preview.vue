@@ -6,7 +6,8 @@
     <span>${{ toy.price }}</span>
     <nav class="toy-preview-nav">
       <router-link :to="'/edit/' + toy._id">Edit</router-link> | 
-      <router-link :to="'/details/' + toy._id">Details</router-link>
+      <router-link :to="'/details/' + toy._id">Details</router-link> | 
+      <span @click.stop="remove(toy._id)">Delete</span>
     </nav>
   </section>
 </template>
@@ -15,6 +16,12 @@
 export default {
   props: {
     toy: Object,
+  },
+
+  methods: {
+    remove(toyId) {
+      this.$emit('removeToy', toyId)
+    }
   },
 
   data() {
