@@ -10,10 +10,13 @@ export const toyService = {
 
 const TOY_URL = 'http://localhost:3000/api/toy'
 
-function query(filterBy) {
-
-  return axios.get(TOY_URL, { params: { filterBy } })
-    .then((res) => res.data)
+async function query(filterBy) {
+  try {
+    const toys = await axios.get(TOY_URL, { params: { filterBy } })
+    return toys.data
+  } catch (err) {
+    console.log('Cannot get toys', err);
+  }
 }
 
 function getById(toyId) {
