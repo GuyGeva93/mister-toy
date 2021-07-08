@@ -22,8 +22,8 @@ export const toyStore = {
     setFilter(state, { filterBy }) {
       state.filterBy = filterBy
     },
-    removeToy(state, {toyId}){
-      const idx = state.toys.findIndex(toy => toy._id===toyId)
+    removeToy(state, { toyId }) {
+      const idx = state.toys.findIndex(toy => toy._id === toyId)
       if (idx < 0) return console.log('Can not delete toy from state')
       state.toys.splice(idx, 1)
     }
@@ -36,30 +36,57 @@ export const toyStore = {
   },
 
   actions: {
-    loadToys(context) {
-      return toyService.query(context.state.filterBy)
-        .then((toys) => {
-          context.commit({ type: 'setToys', toys })
-        })
-        .catch((err) => {
-          console.log(`Can't load toys`, err)
-          throw err
-        })
+    async loadToys(context) {
+      try {
+        const toys = await toyService.query(context.state.filterBy)
+        context.commit({ type: 'setToys', toys })
+      } catch (err) {
+        console.log(`Can't load toys`, err)
+        throw err
+      }
     },
-    addToy(context, { newToy }) {
-      toyService.save(newToy)
-        .then(savedToy => {
-          context.commit({ type: 'setToy', savedToy })
-        })
-        .catch(err => console.log('Could not save', err))
+    // loadToys(context) {
+    //   return toyService.query(context.state.filterBy)
+    //     .then((toys) => {
+    //       context.commit({ type: 'setToys', toys })
+    //     })
+    //     .catch((err) => {
+    //       console.log(`Can't load toys`, err)
+    //       throw err
+    //     })
+    // },
+    async addToy(context, { newToy }) {
+      try {
+        const savedToy = await toyService.save(newToy)
+        context.commit({ type: 'setToy', savedToy })
+      } catch (err) {
+        console.log('Could not save', err)
+      }
+
     },
-    removeToy(context, {toyId}){
-      toyService.remove(toyId)
-        .then(() => {
-          context.commit({type: 'removeToy', toyId})
-        })
-        .catch(err => console.log('Could not remove', err))
+    // addToy(context, { newToy }) {
+    //   toyService.save(newToy)
+    //     .then(savedToy => {
+    //       context.commit({ type: 'setToy', savedToy })
+    //     })
+    //     .catch(err => console.log('Could not save', err))
+    // },
+    async removeToy(context, { toyId }) {
+      try {
+        await toyService.remove(toyId)
+        context.commit({ type: 'removeToy', toyId })
+      } catch (err) {
+        console.log('Could not remove', err)
+      }
+        
     }
+    // removeToy(context, { toyId }) {
+    //   toyService.remove(toyId)
+    //     .then(() => {
+    //       context.commit({ type: 'removeToy', toyId })
+    //     })
+    //     .catch(err => console.log('Could not remove', err))
+    // }
 
   },
 }

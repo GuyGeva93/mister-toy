@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { httpService } from './http-service'
 
 export const toyService = {
   query,
@@ -8,33 +9,77 @@ export const toyService = {
   getEmptyToy,
 }
 
-const TOY_URL = 'http://localhost:3000/api/toy'
+const TOY_URL = 'http://localhost:3030/api/toy'
 
 async function query(filterBy) {
   try {
-    const toys = await axios.get(TOY_URL, { params: { filterBy } })
-    return toys.data
+    const toys = await httpService.get('toy', { params: { filterBy } })
+    return toys
   } catch (err) {
     console.log('Cannot get toys', err);
   }
 }
 
-function getById(toyId) {
-  return axios.get(`${TOY_URL}/${toyId}`).then((res) => res.data)
-}
+// async function query(filterBy) {
+//   try {
+//     const toys = await axios.get(TOY_URL, { params: { filterBy } })
+//     return toys.data
+//   } catch (err) {
+//     console.log('Cannot get toys', err);
+//   }
+// }
 
-function save(toy) {
-  toy.createdAt = Date.now()
-  if (toy._id) {
-    return axios.put(TOY_URL, toy).then((res) => res.data)
-  } else {
-    return axios.post(TOY_URL, toy).then((res) => res.data)
+async function getById(toyId) {
+  try {
+    const toy = await httpService.get(`toy/${toyId}`)
+    return toy
+  } catch (err) {
+    console.log('Cannot get toy', err);
   }
 }
 
-function remove(toyId) {
-  return axios.delete(`${TOY_URL}/${toyId}`).then((res) => res.data)
+// async function getById(toyId) {
+//   try {
+//     const toy = await axios.get(`${TOY_URL}/${toyId}`)
+
+//     return toy.data
+//   } catch (err) {
+//     console.log('Cannot get toy', err);
+//   }
+// }
+
+
+async function save(toy) {
+  toy.createdAt = Date.now()
+  if (toy._id) {
+    const res = await httpService.put(`toy/${toy._id}`)
+    return res
+  } else {
+    const res = await httpService.post('toy', toy)
+    return res
+  }
 }
+
+// async function save(toy) {
+//   toy.createdAt = Date.now()
+//   if (toy._id) {
+//     const res = await axios.put(TOY_URL, toy)
+//     return res.data
+//   } else {
+//     const res = await axios.post(TOY_URL, toy)
+//     return res.data
+//   }
+// }
+
+async function remove(toyId) {
+  const res = await httpService.delete(`toy/${toyId}`)
+  return res
+}
+
+// async function remove(toyId) {
+//   const res = await axios.delete(`${TOY_URL}/${toyId}`)
+//   return res.data
+// }
 
 function getEmptyToy() {
   const toy = {

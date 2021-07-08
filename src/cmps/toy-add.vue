@@ -51,6 +51,7 @@
     methods: {
       addToy() {
         this.$store.dispatch({ type: 'addToy', newToy: this.newToy })
+        this.$router.push('/')
       },
 
       loadEmptyToy() {

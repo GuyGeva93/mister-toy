@@ -11,12 +11,14 @@
   background-color: #fff;
   box-shadow: 0px 0px 15px 2px #000000;
 
-  h3,
-  p {
+  h3, p {
     margin: 0;
   }
 
   img {
     width: 120px;
+  }
+  span {
+    cursor: pointer;
   }
 }
