@@ -6,12 +6,17 @@ import toyDetails from '../cmps/toy-details.vue'
 import toyStats from '../cmps/toy-stats.vue'
 import toyMaps from '../cmps/toy-maps.vue'
 import toyAdd from '../cmps/toy-add.vue'
+import login from '../pages/login.vue'
 
 Vue.use(vueRouter)
 
 const routes = [
   {
     path: '/',
+    component: login
+  },
+  {
+    path: '/toy',
     component: toyApp
   },
   {

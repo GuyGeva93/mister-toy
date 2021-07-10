@@ -20,15 +20,6 @@ async function query(filterBy) {
   }
 }
 
-// async function query(filterBy) {
-//   try {
-//     const toys = await axios.get(TOY_URL, { params: { filterBy } })
-//     return toys.data
-//   } catch (err) {
-//     console.log('Cannot get toys', err);
-//   }
-// }
-
 async function getById(toyId) {
   try {
     const toy = await httpService.get(`toy/${toyId}`)
@@ -38,19 +29,8 @@ async function getById(toyId) {
   }
 }
 
-// async function getById(toyId) {
-//   try {
-//     const toy = await axios.get(`${TOY_URL}/${toyId}`)
-
-//     return toy.data
-//   } catch (err) {
-//     console.log('Cannot get toy', err);
-//   }
-// }
-
-
 async function save(toy) {
-  toy.createdAt = Date.now()
+  // toy.createdAt = Date.now()
   if (toy._id) {
     const res = await httpService.put(`toy/${toy._id}`, {toy})
     return res
@@ -60,26 +40,10 @@ async function save(toy) {
   }
 }
 
-// async function save(toy) {
-//   toy.createdAt = Date.now()
-//   if (toy._id) {
-//     const res = await axios.put(TOY_URL, toy)
-//     return res.data
-//   } else {
-//     const res = await axios.post(TOY_URL, toy)
-//     return res.data
-//   }
-// }
-
 async function remove(toyId) {
   const res = await httpService.delete(`toy/${toyId}`)
   return res
 }
-
-// async function remove(toyId) {
-//   const res = await axios.delete(`${TOY_URL}/${toyId}`)
-//   return res.data
-// }
 
 function getEmptyToy() {
   const toy = {
@@ -92,3 +56,4 @@ function getEmptyToy() {
   }
   return Promise.resolve(toy)
 }
+
