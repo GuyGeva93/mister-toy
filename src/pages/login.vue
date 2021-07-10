@@ -1,8 +1,8 @@
 <template>
   <section class="login">
-    <label for="username"></label>
+    <h2>Login</h2>
     <form @submit.prevent="login">
-      <input name="username" type="text" v-model="username" />
+      <input name="username" type="text" placeholder="username" v-model="userCred.username" />
       <button>Login</button>
     </form>
   </section>
@@ -12,21 +12,17 @@
   export default {
     data() {
       return {
-        username: '',
+        userCred: {
+          username: ''
+        },
       }
     },
 
     methods: {
       login() {
-        console.log('username', this.username)
+        this.$store.dispatch({type: 'login', userCred: this.userCred})
+        this.$router.push('/toy')
       },
     },
   }
 </script>
-
-<style>
-  .username {
-    display: flex;
-    justify-content: center;
-  }
-</style>
