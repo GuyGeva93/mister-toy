@@ -52,10 +52,10 @@ async function getById(toyId) {
 async function save(toy) {
   toy.createdAt = Date.now()
   if (toy._id) {
-    const res = await httpService.put(`toy/${toy._id}`)
+    const res = await httpService.put(`toy/${toy._id}`, {toy})
     return res
   } else {
-    const res = await httpService.post('toy', toy)
+    const res = await httpService.post('toy', {toy})
     return res
   }
 }
