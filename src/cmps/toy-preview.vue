@@ -29,8 +29,6 @@
     computed: {
       isAdmin() {
         return this.$store.getters.loggedinUser?.isAdmin
-        if (user.isAdmin) return true
-        return false
       },
     },
   }

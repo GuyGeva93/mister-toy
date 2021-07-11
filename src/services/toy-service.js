@@ -25,7 +25,7 @@ async function getById(toyId) {
     const toy = await httpService.get(`toy/${toyId}`)
     return toy
   } catch (err) {
-    console.log('Cannot get toy', err);
+    console.log('Cannot get toy', err)
   }
 }
 
