@@ -45,16 +45,7 @@ export const toyStore = {
         throw err
       }
     },
-    // loadToys(context) {
-    //   return toyService.query(context.state.filterBy)
-    //     .then((toys) => {
-    //       context.commit({ type: 'setToys', toys })
-    //     })
-    //     .catch((err) => {
-    //       console.log(`Can't load toys`, err)
-    //       throw err
-    //     })
-    // },
+   
     async addToy(context, { newToy }) {
       try {
         console.log('newToy', newToy)
@@ -65,13 +56,7 @@ export const toyStore = {
       }
 
     },
-    // addToy(context, { newToy }) {
-    //   toyService.save(newToy)
-    //     .then(savedToy => {
-    //       context.commit({ type: 'setToy', savedToy })
-    //     })
-    //     .catch(err => console.log('Could not save', err))
-    // },
+    
     async removeToy(context, { toyId }) {
       try {
         await toyService.remove(toyId)
@@ -81,13 +66,6 @@ export const toyStore = {
       }
         
     }
-    // removeToy(context, { toyId }) {
-    //   toyService.remove(toyId)
-    //     .then(() => {
-    //       context.commit({ type: 'removeToy', toyId })
-    //     })
-    //     .catch(err => console.log('Could not remove', err))
-    // }
-
+   
   },
 }

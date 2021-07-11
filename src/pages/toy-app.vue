@@ -21,7 +21,7 @@
 
     methods: {
       filter(filterBy) {
-        this.$store.commit({ type: 'setFilter', filterBy })
+        this.$store.commit({ type: 'setFilter', filterBy:filterBy })
         this.$store.dispatch({ type: 'loadToys' })
       },
 

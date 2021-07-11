@@ -52,7 +52,7 @@
       },
       updateToy() {
         const toyCopy = JSON.parse(JSON.stringify(this.toy))
-        toyService.save(toyCopy).then(() => this.$router.push('/'))
+        toyService.save(toyCopy).then(() => this.$router.push('/toy'))
       },
     },
 

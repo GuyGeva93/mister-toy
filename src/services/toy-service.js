@@ -13,7 +13,7 @@ const TOY_URL = 'http://localhost:3030/api/toy'
 
 async function query(filterBy) {
   try {
-    const toys = await httpService.get('toy', { params: { filterBy } })
+    const toys = await httpService.get('toy', { params: filterBy })
     return toys
   } catch (err) {
     console.log('Cannot get toys', err);
@@ -25,7 +25,7 @@ async function getById(toyId) {
     const toy = await httpService.get(`toy/${toyId}`)
     return toy
   } catch (err) {
-    console.log('Cannot get toy', err)
+    console.log('Cannot get toy', err);
   }
 }
 
