@@ -48,7 +48,6 @@ export const toyStore = {
    
     async addToy(context, { newToy }) {
       try {
-        console.log('newToy', newToy)
         const savedToy = await toyService.save(newToy)
         context.commit({ type: 'setToy', savedToy })
       } catch (err) {

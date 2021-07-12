@@ -16,7 +16,7 @@ async function query(filterBy) {
     const toys = await httpService.get('toy', { params: filterBy })
     return toys
   } catch (err) {
-    console.log('Cannot get toys', err);
+    console.log('Cannot get toys', err)
   }
 }
 

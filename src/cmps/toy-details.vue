@@ -9,27 +9,38 @@
       <article v-if="toy.inStock">In stock</article>
       <article v-else>Not in stock :(</article>
     </section>
+
+   <chat :toyId="toy._id"/>
+
   </section>
 </template>
 
 <script>
-  import { toyService } from '../services/toy-service.js'
-  export default {
-    data() {
-      return {
-        toy: '',
-      }
-    },
+import { toyService } from '../services/toy-service.js'
+import chat from './chat.vue'
 
-    methods: {
-      loadToy() {
-        const { toyId } = this.$route.params
-        toyService.getById(toyId).then((toy) => (this.toy = toy))
-      },
-    },
+export default {
+  created() {
+    this.loadToy()
+  },
 
-    created() {
-      this.loadToy()
+  data() {
+    return {
+      toy: '',
+    }
+  },
+
+  methods: {
+    loadToy() {
+      const { toyId } = this.$route.params
+      toyService.getById(toyId).then((toy) => (this.toy = toy))
     },
-  }
+  },
+
+  components: {
+    chat,
+  },
+
+  
+}
 </script>
