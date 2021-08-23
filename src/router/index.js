@@ -11,9 +11,14 @@ import login from '../pages/login.vue'
 Vue.use(vueRouter)
 
 const routes = [
+  // {
+  //   path: '/',
+  //   component: login
+  // },
+
   {
     path: '/',
-    component: login
+    component: toyApp
   },
   {
     path: '/toy',
